@@ -10,16 +10,16 @@ public class KangLoginCommand implements AnCommand{
 
 	@Override
 	public void execute(Model model) {
-		// 6. controller¿¡¼­ ³Ñ°Ü¹ŞÀº model¿¡¼­ °ª ÃßÃâ
+		// 6. controllerì—ì„œ ë„˜ê²¨ë°›ì€ modelì—ì„œ ê°’ ì¶”ì¶œ
 		String id = (String)model.asMap().get("id");
 		String passwd = (String)model.asMap().get("passwd");
 		
-		// 7. ÃßÃâÇÑ °ªÀ» Dao¿¡ ³Ñ°ÜÁØ´Ù.
+		// 7. ì¶”ì¶œí•œ ê°’ì„ Daoì— ë„˜ê²¨ì¤€ë‹¤.
 		KangDao adao = new KangDao();
-		// 10. Dao¿¡¼­ ³Ñ°ÜÁØ °ªÀ» ¹Ş´Â´Ù
+		// 10. Daoì—ì„œ ë„˜ê²¨ì¤€ ê°’ì„ ë°›ëŠ”ë‹¤
 		KangDTO memberDTO = adao.kangJoin(name, passwd);
 				 
-		// 11. jsp¿¡¼­ »ç¿ëÇÏ±â À§ÇØ ¸ğµ¨¿¡ ÀúÀåÇÑ´Ù
+		// 11. jspì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ëª¨ë¸ì— ì €ì¥í•œë‹¤
 		model.addAttribute("anLogin", memberDTO);				
 		
 	}

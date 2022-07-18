@@ -11,10 +11,10 @@ import javax.sql.DataSource;
 
 public class KangDao {
 	
-	// µ¥ÀÌÅÍ º£ÀÌ½º¿Í ¿¬µ¿ : µ¥ÀÌÅÍº£ÀÌ½º ÃÊ±âÈ­ ÇØÁÜ
+	// ë°ì´í„° ë² ì´ìŠ¤ì™€ ì—°ë™ : ë°ì´í„°ë² ì´ìŠ¤ ì´ˆê¸°í™” í•´ì¤Œ
 	DataSource dataSource;
 	
-	// »ı¼ºÀÚ¸¦ ÅëÇØ¼­ µ¥ÀÌÅÍº£ÀÌ½º µå¶óÀÌ¹ö¸¦ ¼±¾ğÇØÁØ´Ù
+	// ìƒì„±ìë¥¼ í†µí•´ì„œ ë°ì´í„°ë² ì´ìŠ¤ ë“œë¼ì´ë²„ë¥¼ ì„ ì–¸í•´ì¤€ë‹¤
 	public KangDao() {
 		try {
 			Context context = new InitialContext();
@@ -25,9 +25,9 @@ public class KangDao {
 		}
 		
 	}	
-	// 8. È¸¿ø°¡ÀÔ : anJionCommand¿¡¼­ °ªÀ» ³Ñ°Ü¹Ş´Â´Ù
+	// 8. íšŒì›ê°€ì… : anJionCommandì—ì„œ ê°’ì„ ë„˜ê²¨ë°›ëŠ”ë‹¤
 	public int kangJoin(String name, String email, String phonenumber, String id, String profileimage) {
-		// µ¥ÀÌÅÍº£ÀÌ½º¿Í ¿¬µ¿ÇÏ¿© ¿øÇÏ´Â °á°ú¹°À» ¾ò´Â´Ù.
+		// ë°ì´í„°ë² ì´ìŠ¤ì™€ ì—°ë™í•˜ì—¬ ì›í•˜ëŠ” ê²°ê³¼ë¬¼ì„ ì–»ëŠ”ë‹¤.
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		int state = -100;
@@ -41,9 +41,9 @@ public class KangDao {
 			state = preparedStatement.executeUpdate();
 			
 			if(state > 0) {
-				System.out.println("È¸¿ø°¡ÀÔ¼º°ø!!!");
+				System.out.println("íšŒì›ê°€ì…ì„±ê³µ!!!");
 			}else {
-				System.out.println("È¸¿ø°¡ÀÔ½ÇÆĞ ¤Ì¤Ì");
+				System.out.println("íšŒì›ê°€ì…ì‹¤íŒ¨ ã…œã…œ");
 			}
 			
 		}catch(Exception e) {
@@ -62,7 +62,7 @@ public class KangDao {
 			}
 		}
 		
-		// 9. ¿øÇÏ´Â °ªÀ» ³Ñ°ÜÁÜ
+		// 9. ì›í•˜ëŠ” ê°’ì„ ë„˜ê²¨ì¤Œ
 		return state;
 		
 	}

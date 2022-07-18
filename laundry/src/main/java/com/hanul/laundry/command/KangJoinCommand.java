@@ -8,19 +8,19 @@ public class KangJoinCommand implements AnCommand{
 
 	@Override
 	public void execute(Model model) {
-		// 6. controller¿¡¼­ ³Ñ°Ü¹ŞÀº model¿¡¼­ °ª ÃßÃâ
+		// 6. controllerì—ì„œ ë„˜ê²¨ë°›ì€ modelì—ì„œ ê°’ ì¶”ì¶œ
 		String name = (String)model.asMap().get("name");
 		String email = (String)model.asMap().get("email");
 		String phonenumber = (String)model.asMap().get("phonenumber");
 		String id = (String)model.asMap().get("id");
 		String profileimage = (String)model.asMap().get("profileimage");
 		
-		// 7. ÃßÃâÇÑ °ªÀ» Dao¿¡ ³Ñ°ÜÁØ´Ù.
+		// 7. ì¶”ì¶œí•œ ê°’ì„ Daoì— ë„˜ê²¨ì¤€ë‹¤.
 		KangDao kangdao = new KangDao();
-		// 10. Dao¿¡¼­ ³Ñ°ÜÁØ °ªÀ» ¹Ş´Â´Ù
+		// 10. Daoì—ì„œ ë„˜ê²¨ì¤€ ê°’ì„ ë°›ëŠ”ë‹¤
 		int state = kangdao.kangJoin(name, email, phonenumber, id, profileimage);
 				 
-		// 11. jsp¿¡¼­ »ç¿ëÇÏ±â À§ÇØ ¸ğµ¨¿¡ ÀúÀåÇÑ´Ù
+		// 11. jspì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ëª¨ë¸ì— ì €ì¥í•œë‹¤
 		model.addAttribute("kangJoin", String.valueOf(state));				
 		
 	}

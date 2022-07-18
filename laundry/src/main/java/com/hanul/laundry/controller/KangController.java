@@ -24,7 +24,7 @@ public class KangController {
 	public String kangJoin(HttpServletRequest req, Model model) {
 		System.out.println("KangJoin");
 		
-		// 1. ¾Èµå·ÎÀÌµå¿¡¼­ º¸³½ µ¥ÀÌÅÍ¸¦ req·Î ¹Ş¾Æ¼­ º¯¼ö¿¡ ÀúÀå
+		// 1. ì•ˆë“œë¡œì´ë“œì—ì„œ ë³´ë‚¸ ë°ì´í„°ë¥¼ reqë¡œ ë°›ì•„ì„œ ë³€ìˆ˜ì— ì €ì¥
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
 		String phonenumber = req.getParameter("phonenumber");
@@ -38,12 +38,12 @@ public class KangController {
 //		String profileimage = "5";
 				
 		
-		// 2. Âï¾îº¾½Ã´Ù
+		// 2. ì°ì–´ë´…ì‹œë‹¤
 		System.out.println(name + ", " + email + ", " + phonenumber + ", " 
 					+  id + ", " + profileimage );
 					
-		// 3. ¾Èµå·ÎÀÌµå¿¡¼­ º¸³½ ÆÄÀÏ ¹Ş±â : ÆÄÀÏÀ» º¸³½ °æ¿ì¿¡¸¸ ½ÇÇà
-		// ÆÄÀÏÀÌ¸§¸¸ ÀúÀåÇØ ³õ°í ¾Èµå·ÎÀÌµå¿¡¼­ ¹Ş¾Æ¼­ ÀüÃ¼ °æ·Î¸¦ ¿Ï¼ºÇÑ´Ù
+		// 3. ì•ˆë“œë¡œì´ë“œì—ì„œ ë³´ë‚¸ íŒŒì¼ ë°›ê¸° : íŒŒì¼ì„ ë³´ë‚¸ ê²½ìš°ì—ë§Œ ì‹¤í–‰
+		// íŒŒì¼ì´ë¦„ë§Œ ì €ì¥í•´ ë†“ê³  ì•ˆë“œë¡œì´ë“œì—ì„œ ë°›ì•„ì„œ ì „ì²´ ê²½ë¡œë¥¼ ì™„ì„±í•œë‹¤
 //		String fileName = "";
 //		
 //		MultipartRequest multi = (MultipartRequest)req;
@@ -60,7 +60,7 @@ public class KangController {
 //				System.out.println("realpath : " + realImgPath);
 //				System.out.println("fileSize : " + file.getSize());
 //				
-//				// ÀÌ¹ÌÁö ÆÄÀÏÀ» ¼­¹ö¿¡ ÀúÀå
+//				// ì´ë¯¸ì§€ íŒŒì¼ì„ ì„œë²„ì— ì €ì¥
 //				try {
 //					file.transferTo(new File(realImgPath, fileName));
 //				} catch (Exception e) {
@@ -71,18 +71,18 @@ public class KangController {
 //		}			
 //			
 		
-		// 4. AnJoinCommand ¿¡°Ô model¿¡ ´ã¾Æ¼­ µ¥ÀÌÅÍ¸¦ º¸³»ÁØ´Ù.
+		// 4. AnJoinCommand ì—ê²Œ modelì— ë‹´ì•„ì„œ ë°ì´í„°ë¥¼ ë³´ë‚´ì¤€ë‹¤.
 		model.addAttribute("id", id);
 		model.addAttribute("name", name);
 		model.addAttribute("email", email);
 		model.addAttribute("phonenumber", phonenumber);
 		model.addAttribute("profileimage", profileimage);
 		
-		// 5. AnJoinCommand¸¦ »ı¼ºÇØ¼­ µ¥ÀÌÅÍ°¡ ´ã±ä modelÀ» ³Ñ°ÜÁØ´Ù.
+		// 5. AnJoinCommandë¥¼ ìƒì„±í•´ì„œ ë°ì´í„°ê°€ ë‹´ê¸´ modelì„ ë„˜ê²¨ì¤€ë‹¤.
 		command = new KangJoinCommand();
 		command.execute(model);				
 		
-		// ÀÀ´äÀ» À§ÇØ views¿¡¼­ anJoin.jsp¸¦ Ã£¾Æ ½ÇÇàÇÑ´Ù.
+		// ì‘ë‹µì„ ìœ„í•´ viewsì—ì„œ anJoin.jspë¥¼ ì°¾ì•„ ì‹¤í–‰í•œë‹¤.
 		return "kangJoin";
 		
 	}

@@ -12,13 +12,13 @@ public class KangSelectMemberCommand implements AnCommand{
 
 	@Override
 	public void execute(Model model) {
-		// 6. controller¿¡¼­ ³Ñ°Ü¹ŞÀº model¿¡¼­ °ª ÃßÃâ	
-		// 7. ÃßÃâÇÑ °ªÀ» Dao¿¡ ³Ñ°ÜÁØ´Ù.
+		// 6. controllerì—ì„œ ë„˜ê²¨ë°›ì€ modelì—ì„œ ê°’ ì¶”ì¶œ	
+		// 7. ì¶”ì¶œí•œ ê°’ì„ Daoì— ë„˜ê²¨ì¤€ë‹¤.
 		KangDao adao = new KangDao();
-		// 10. Dao¿¡¼­ ³Ñ°ÜÁØ °ªÀ» ¹Ş´Â´Ù
+		// 10. Daoì—ì„œ ë„˜ê²¨ì¤€ ê°’ì„ ë°›ëŠ”ë‹¤
 		ArrayList<KangDTO> dtos = adao.anSelectMember();
 				 
-		// 11. jsp¿¡¼­ »ç¿ëÇÏ±â À§ÇØ ¸ğµ¨¿¡ ÀúÀåÇÑ´Ù
+		// 11. jspì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ëª¨ë¸ì— ì €ì¥í•œë‹¤
 		model.addAttribute("anSelectMember", dtos);				
 		
 	}
