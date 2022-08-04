@@ -4,24 +4,24 @@ import java.io.Serializable;
 
 public class PS_SearchDTO implements Serializable {
 	/*
-	 * �ʿ��� �������÷���(���̺��̸�)  
+	 * 필요한 데이터컬럼명(테이블이름)  
 	 * 
 	 * 1. Search 
-	 * 	- �����̸� : storeid(store)
-	 * 	- ���� �ּ� : address(store) �� ����ġ ������ �Ÿ� ��� - ���浵�� ����ؼ� java���� ���
-	 * 	- ��� ���� ��Ź�� ���� : operating(store?) - 0719 ���� : storestate machineid
+	 * 	- 가게이름 : storeid(store)
+	 * 	- 가게 주소 : address(store) 와 현위치 사이의 거리 계산 - 위경도를 사용해서 java에서 계산
+	 * 	- 사용 가능 세탁기 개수 : operating(store?) - 0719 질문 : storestate machineid
 	 * 
 	 * 2. burger
-	 * 	- ����� �̸� : name(userinfo)
+	 * 	- 사용자 이름 : name(userinfo)
 	 * 
 	 * 3. QR
-	 * 	- ����� �̸� : name(userinfo)
-	 * 	- �ܿ��ݾ� : point(userinfo)
+	 * 	- 사용자 이름 : name(userinfo)
+	 * 	- 잔여금액 : point(userinfo)
 	 * 
 	 * */
 	
 	/*
-	 *	0718~19 �ϴ� Search�� �����̸�, �����ּҸ� �����غ���. �� ���Ŀ� ���ݾ� Ȯ��. 
+	 *	0718~19 일단 Search의 가게이름, 가게주소만 연결해보자. 그 이후에 조금씩 확장. 
 	 * 
 	 * */
 	private String name, email, phonenumber, id, profileimage;
@@ -139,75 +139,6 @@ public class PS_SearchDTO implements Serializable {
 
 	
 	
-	
-//	String id, passwd, name, phonenumber, address, filename;
-//
-//	public MemberDTO(String id, String name, String phonenumber, String address, String filename) {
-//		super();
-//		this.id = id;
-//		this.name = name;
-//		this.phonenumber = phonenumber;
-//		this.address = address;
-//		this.filename = filename;
-//	}
-//	
-//	public MemberDTO(String id, String passwd, String name, String phonenumber, String address, String filename) {
-//		super();
-//		this.id = id;
-//		this.passwd = passwd;
-//		this.name = name;
-//		this.phonenumber = phonenumber;
-//		this.address = address;
-//		this.filename = filename;
-//	}
-//
-//	public String getId() {
-//		return id;
-//	}
-//
-//	public void setId(String id) {
-//		this.id = id;
-//	}
-//
-//	public String getPasswd() {
-//		return passwd;
-//	}
-//
-//	public void setPasswd(String passwd) {
-//		this.passwd = passwd;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public String getPhonenumber() {
-//		return phonenumber;
-//	}
-//
-//	public void setPhonenumber(String phonenumber) {
-//		this.phonenumber = phonenumber;
-//	}
-//
-//	public String getAddress() {
-//		return address;
-//	}
-//
-//	public void setAddress(String address) {
-//		this.address = address;
-//	}
-//
-//	public String getFilename() {
-//		return filename;
-//	}
-//
-//	public void setFilename(String filename) {
-//		this.filename = filename;
-//	}
 	
 	
 	

@@ -13,10 +13,10 @@ import javax.sql.DataSource;
 import com.hanul.laundry.dto.PS_SearchDTO;
 
 public class PS_Dao {
-	// ������ ���̽��� ���� : �����ͺ��̽� �ʱ�ȭ ����
+	// 데이터 베이스와 연동 : 데이터베이스 초기화 해줌
 	DataSource dataSource;
 		
-	// �����ڸ� ���ؼ� �����ͺ��̽� ����̹��� �������ش�
+	// 생성자를 통해서 데이터베이스 드라이버를 선언해준다
 	public PS_Dao() {
 		try {
 			Context context = new InitialContext();
@@ -28,10 +28,10 @@ public class PS_Dao {
 		
 	}
 	
-	//	Search���� �Ѹ� ������ �������� : **��ü ����Ʈ**
+//	Search에서 뿌릴 데이터 가져오기 : **전체 리스트**
 	public ArrayList<PS_SearchDTO> anSearch(){
 
-		// �����ͺ��̽��� �����Ͽ� ���ϴ� ������� ��´�.
+		// 데이터베이스와 연동하여 원하는 결과물을 얻는다.
 		ArrayList<PS_SearchDTO> dtos = new ArrayList<PS_SearchDTO>();
 		Connection connection = null;
 		PreparedStatement prepareStatement = null;
@@ -44,14 +44,14 @@ public class PS_Dao {
 			resultSet = prepareStatement.executeQuery();
 			
 			while (resultSet.next()) {
-				//���⿡�� ���� �浵 ����Լ�(xxx.java or dao ���� �����) ������ �ǳ���
+				//여기에서 위도 경도 계산함수(xxx.java or dao 에서 만들기) 돌리고 건네줌
 				String address = resultSet.getString("address");
 				String location = resultSet.getString("location");
 				String imageurl = resultSet.getString("imageurl");
 				dtos.add(new PS_SearchDTO(address, location, imageurl));							
 			}	
 			
-			//����Ǿ����� Ȯ�ο� print
+			//연결되었는지 확인용 print
 			System.out.println("dtosSize : " + dtos.size());
 			
 		} catch (Exception e) {
@@ -82,14 +82,14 @@ public class PS_Dao {
 	}
 	
 	
-	// QRCode : PS_QRCommand���� ���� �Ѱܹ޴´�
+	// QRCode : PS_QRCommand에서 값을 넘겨받는다
 			public PS_SearchDTO psQRCode(String name) {
-				// �����ͺ��̽��� �����Ͽ� ���ϴ� ������� ��´�.
+				// 데이터베이스와 연동하여 원하는 결과물을 얻는다.
 				PS_SearchDTO ps_searchDTO = null;
 				Connection connection = null;
 				PreparedStatement prepareStatement = null;
 				ResultSet resultSet = null;		
-				//name="������";
+				//name="강민재";
 				try {
 					connection = dataSource.getConnection();
 					System.out.println("check1");
