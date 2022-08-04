@@ -13,9 +13,9 @@ import com.hanul.laundry.command.kkbAnlocationCommand;
 @Controller
 public class kkbAnController {
 
-	@RequestMapping(value="/anBookmark", method = {RequestMethod.GET, RequestMethod.POST} )
+	@RequestMapping(value="/kkbanBookmark", method = {RequestMethod.GET, RequestMethod.POST} )
 	public String anBookmark(HttpServletRequest req, Model model, kkbAnlocationCommand command) {
-		System.out.println("anBookmark()");
+		System.out.println("kkbanBookmark()");
 		
 		//1. �ȵ���̵忡�� ���� ���� req�� �޾Ƽ� ������ ����
 		String userid = (String) req.getParameter("userid");	
