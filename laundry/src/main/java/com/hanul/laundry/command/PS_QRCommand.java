@@ -1,26 +1,26 @@
-package com.hanul.search.command;
+package com.hanul.laundry.command;
 
 import java.util.ArrayList;
 
 import org.springframework.ui.Model;
 
 
-import com.hanul.search.dao.PS_Dao;
-import com.hanul.search.dto.PS_SearchDTO;
+import com.hanul.laundry.dao.PS_Dao;
+import com.hanul.laundry.dto.PS_SearchDTO;
 
 public class PS_QRCommand implements AnCommand{
 
 	@Override
 	public void execute(Model model) {
-		// 6. controller¿¡¼­ ³Ñ°Ü¹ÞÀº model¿¡¼­ °ª ÃßÃâ
+		// 6. controllerï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Ü¹ï¿½ï¿½ï¿½ modelï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		String name = (String)model.asMap().get("name");
 		
-		// 7. ÃßÃâÇÑ °ªÀ» Dao¿¡ ³Ñ°ÜÁØ´Ù.
+		// 7. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Daoï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½.
 		PS_Dao adao = new PS_Dao();
-		// 10. Dao¿¡¼­ ³Ñ°ÜÁØ °ªÀ» ¹Þ´Â´Ù
+		// 10. Daoï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´Â´ï¿½
 		PS_SearchDTO ps_searchdto = adao.psQRCode(name);
 				 
-		// 11. jsp¿¡¼­ »ç¿ëÇÏ±â À§ÇØ ¸ðµ¨¿¡ ÀúÀåÇÑ´Ù
+		// 11. jspï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ðµ¨¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 		model.addAttribute("psQRCode", ps_searchdto);
 	}
 
