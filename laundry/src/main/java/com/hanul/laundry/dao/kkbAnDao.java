@@ -14,7 +14,7 @@ import com.hanul.laundry.dto.*;
 public class kkbAnDao {
 	DataSource dataSource;
 
-	// ������ : �����ͺ��̽� ����̹��� �����Ѵ�
+	// 생성자 : 데이터베이스 드라이버를 셋팅한다
 	public kkbAnDao() {
 		try {
 			Context context = new InitialContext();
@@ -26,19 +26,19 @@ public class kkbAnDao {
 
 	}
 
-	//���ã�� �� ��ư�� ���������� ����. ������ ��ȭ�� �ִ� �Լ�
+	//즐겨찾기 별 버튼을 누를때마다 실행. 무조건 변화가 있는 함수
 	public int anlocation(String userid, String storeid , String lc) {
 		int state = -100;
 		userid = "1";
 		storeid= "2";
-// �����ͺ��̽��� �����Ͽ� ���ϴ� ������� ��´�
+// 데이터베이스와 연결하여 원하는 결과물을 얻는다
 		Connection connection = null;
 		PreparedStatement ps = null;
 		String query = "";
 		try {
 			
 			connection = dataSource.getConnection();
-			/* lc�� �������� if, update 
+			/* lc을 기준으로 if, update 
 			 * 
 			 * */
 			
@@ -63,9 +63,9 @@ public class kkbAnDao {
 			System.out.println("check4");
 			
 			if (state > 0) {
-				System.out.println(state + "���Լ���");
+				System.out.println(state + "삽입성공");
 			} else {
-				System.out.println(state + "���Խ���");
+				System.out.println(state + "삽입실패");
 			}
 
 		} catch (Exception e) {
@@ -86,7 +86,7 @@ public class kkbAnDao {
 			}
 		}
 
-//8. ���ϴ� ���� ���Ͻ�Ų��
+//8. 원하는 값을 리턴시킨다
 		return state;
 
 	}
@@ -123,7 +123,7 @@ public class kkbAnDao {
 	 * }
 	 */
 	/*
-	 * // �����ͺ��̽��� �ִ� ����� ��� �����ͼ� ArrayList�� �ֱ� public ArrayList<LocationDTO>
+	 * // 데이터베이스에 있는 멤버를 모두 가져와서 ArrayList에 넣기 public ArrayList<LocationDTO>
 	 * anMemberSelect() {
 	 * 
 	 * ArrayList<LocationDTO> adtos = new ArrayList<LocationDTO>(); Connection
@@ -145,7 +145,7 @@ public class kkbAnDao {
 	 * 
 	 * }
 	 * 
-	 * System.out.println("adtosũ��" + adtos.size());
+	 * System.out.println("adtos크기" + adtos.size());
 	 * 
 	 * } catch (Exception e) {
 	 * 
