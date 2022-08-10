@@ -3,6 +3,7 @@ package com.hanul.laundry.command;
 import org.springframework.ui.Model;
 
 import com.hanul.laundry.dao.kkbAnDao;
+import com.hanul.laundry.dto.kkbLocationDTO;
 
 public class kkbAnlocationCommand implements kkbAnCommand {
 
@@ -17,11 +18,13 @@ public class kkbAnlocationCommand implements kkbAnCommand {
 				
 				kkbAnDao dao = new kkbAnDao();
 				//6. 추출한 값을 Dao에 넘겨준다
-				int state = dao.anlocation(userid,  storeid , lc);
+//				int state = dao.anlocation(userid,  storeid , lc);
+				int dtos = dao.anlocation(userid,  storeid , lc);
 				//9. Dao에서 넘겨준 값을 같은 타입으로 받는다
 				
 				//10. jsp에서 사용하기 위해 모델에 저장한다.
-				model.addAttribute("anBookmark", String.valueOf(state));
+//				model.addAttribute("anBookmark", String.valueOf(state));
+				model.addAttribute("kkbanBookmark", dtos);
 				
 			}
 			

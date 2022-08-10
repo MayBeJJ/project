@@ -40,20 +40,6 @@ public class PS_Controller {
 	}
 
 	
-	/*
-	 * @RequestMapping(value="/psQRCode", method = {RequestMethod.GET,
-	 * RequestMethod.POST}) public String psQRCode(HttpServletRequest req, Model
-	 * model) { System.out.println("psQRCode");
-	 * 
-	 * // 1. 안드로이드에서 보낸 데이터를 req로 받아서 변수에 저장 // 2. 찍어봅시다 // 3. 안드로이드에서 보낸 파일 받기 :
-	 * 파일을 보낸 경우에만 실행 // 파일이름만 저장해 놓고 안드로이드에서 받아서 전체 경로를 완성한다 // 4. AnJoinCommand 에게
-	 * model에 담아서 데이터를 보내준다. // 5. AnJoinCommand를 생성해서 데이터가 담긴 model을 넘겨준다. command
-	 * = new AnSelectMemberCommand(); command.execute(model);
-	 * 
-	 * // 응답을 위해 views에서 anLogin.jsp를 찾아 실행한다. return "anSelectMember";
-	 * 
-	 * }
-	 */
 	@RequestMapping(value="/psQRCode", method = {RequestMethod.GET, RequestMethod.POST})
 	public String psQRCode(HttpServletRequest req, Model model) {
 		System.out.println("psQRCode");

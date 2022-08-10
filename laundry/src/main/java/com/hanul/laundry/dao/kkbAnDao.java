@@ -27,10 +27,11 @@ public class kkbAnDao {
 	}
 
 	//즐겨찾기 별 버튼을 누를때마다 실행. 무조건 변화가 있는 함수
-	public int anlocation(String userid, String storeid , String lc) {
+	public  int anlocation(String userid, String storeid , String lc) {
 		int state = -100;
-		userid = "1";
-		storeid= "2";
+		/*
+		 * userid = "1"; storeid= "2";
+		 */
 // 데이터베이스와 연결하여 원하는 결과물을 얻는다
 		Connection connection = null;
 		PreparedStatement ps = null;
@@ -44,7 +45,7 @@ public class kkbAnDao {
 			
 			  if(lc.equals("1") ) { 
 					  query = "insert into BOOKMARK(userid,storeid) " +
-								 "values ("+userid+","+storeid+") "; }
+								 "values ('"+userid+"','"+storeid+"') "; }
 			  else if(lc.equals("0")){ 
 				  System.out.println("delete> ");
 				  query = "delete from bookmark "
@@ -90,6 +91,60 @@ public class kkbAnDao {
 		return state;
 
 	}
+	
+	public ArrayList<PS_SearchDTO> anSearch2(){
+
+		// 데이터베이스와 연동하여 원하는 결과물을 얻는다.
+		ArrayList<PS_SearchDTO> dtos = new ArrayList<PS_SearchDTO>();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;		
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select address, location, imageurl from store" ;
+			prepareStatement = connection.prepareStatement(query);
+			resultSet = prepareStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				//여기에서 위도 경도 계산함수(xxx.java or dao 에서 만들기) 돌리고 건네줌
+				String address = resultSet.getString("address");
+				String location = resultSet.getString("location");
+				String imageurl = resultSet.getString("imageurl");
+				//String storeid = resultSet.getString("storeid");
+				dtos.add(new PS_SearchDTO(address, location, imageurl));							
+			}	
+			
+			//연결되었는지 확인용 print
+			System.out.println("dtosSize : " + dtos.size());
+			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		} finally {
+			try {			
+				
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (prepareStatement != null) {
+					prepareStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}	
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+
+			}
+		}			
+		
+		
+		return dtos;
+	}
+	
 
 	/*
 	 * public LocationDTO anLogin(String idin, String pwin) { LocationDTO adto =

@@ -48,6 +48,7 @@ public class PS_Dao {
 				String address = resultSet.getString("address");
 				String location = resultSet.getString("location");
 				String imageurl = resultSet.getString("imageurl");
+				//String storeid = resultSet.getString("storeid");
 				dtos.add(new PS_SearchDTO(address, location, imageurl));							
 			}	
 			
