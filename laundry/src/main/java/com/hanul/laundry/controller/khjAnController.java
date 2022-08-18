@@ -61,7 +61,7 @@ public class khjAnController {
 		
 	}
 	
-	@ResponseBody  @RequestMapping("/kimCleanInfo")
+	@ResponseBody  @RequestMapping(value="/kimCleanInfo", produces="text/plain; charset=utf-8")
 	public String anCleanInfo(HttpServletRequest req, Model model) throws Exception{
 		
 		try {

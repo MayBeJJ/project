@@ -26,7 +26,7 @@ public class khjDao {
 	public khjDao() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource)context.lookup("java:/comp/env/ateam");			
+			dataSource = (DataSource)context.lookup("java:/comp/env/teamAll");			
 			
 		}catch(NamingException e) {
 			e.getMessage();
@@ -89,7 +89,7 @@ public ArrayList<khjMoneyDTO> anSelectMoney() {
 	
 	try {
 		connection = dataSource.getConnection();
-		String query = "select id, money"
+		String query = "select id, money "
 						+ "from moneydto";
 		prepareStatement = connection.prepareStatement(query);
 		resultSet = prepareStatement.executeQuery();
@@ -190,7 +190,7 @@ public ArrayList<khjMemberDTO> anSelectMember() {
 	
 	try {
 		connection = dataSource.getConnection();
-		String query = "select id, name, email, phonenumber, profileimage"
+		String query = "select id, name, email, phonenumber, profileimage "
 						+"from memberdto";
 		prepareStatement = connection.prepareStatement(query);
 		resultSet = prepareStatement.executeQuery();
