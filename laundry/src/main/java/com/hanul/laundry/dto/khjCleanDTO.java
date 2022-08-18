@@ -1,16 +1,17 @@
 package com.hanul.laundry.dto;
 
 public class khjCleanDTO {
-	String location, latitude, longitude, address;
+	String location, latitude, longitude, address, imageurl;
 	
 	
 
-	public khjCleanDTO(String location, String latitude, String longitude, String address) {
+	public khjCleanDTO(String location, String latitude, String longitude, String address, String imageurl) {
 		super();
 		this.location = location;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.address = address;
+		this.imageurl = imageurl;
 	}
 
 	public String getLocation() {
@@ -45,6 +46,12 @@ public class khjCleanDTO {
 		this.address = address;
 	}
 	
+	public String getImageurl() {
+		return imageurl;
+	}
 	
+	public void setImageurl(String imageurl) {
+		this.imageurl = imageurl;
+	}
 
 }

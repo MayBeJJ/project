@@ -10,19 +10,20 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+
 import com.hanul.laundry.dto.khjCleanDTO;
 import com.hanul.laundry.dto.khjMemberDTO;
 import com.hanul.laundry.dto.khjMoneyDTO;
 import com.hanul.laundry.dto.khjRecentDTO;
 
 
-public class khjAnDao {
+public class khjDao {
 	
 	// 데이터 베이스와 연동 : 데이터베이스 초기화 해줌
 	DataSource dataSource;
 	
 	// 생성자를 통해서 데이터베이스 드라이버를 선언해준다
-	public khjAnDao() {
+	public khjDao() {
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource)context.lookup("java:/comp/env/ateam");			
@@ -128,7 +129,7 @@ public ArrayList<khjMoneyDTO> anSelectMoney() {
 		}
 	
 	
-public ArrayList<khjCleanDTO> anSelectClean() {
+public ArrayList<khjCleanDTO> kimSelectClean() {
 	
 	ArrayList<khjCleanDTO> adtos = new ArrayList<khjCleanDTO>();
 	Connection connection = null;
@@ -137,8 +138,8 @@ public ArrayList<khjCleanDTO> anSelectClean() {
 	
 	try {
 		connection = dataSource.getConnection();
-		String query = "select location, latitude, longitude, address "
-						+ "from storemap";
+		String query = "select location, latitude, longitude, address, imageurl "
+						+ "from store";
 		prepareStatement = connection.prepareStatement(query);
 		resultSet = prepareStatement.executeQuery();
 		
@@ -147,8 +148,9 @@ public ArrayList<khjCleanDTO> anSelectClean() {
 			String latitude = resultSet.getString("latitude");
 			String longitude = resultSet.getString("longitude");
 			String address = resultSet.getString("address");
+			String imageurl = resultSet.getString("imageurl");
 			
-			khjCleanDTO adto = new khjCleanDTO(location, latitude, longitude, address);
+			khjCleanDTO adto = new khjCleanDTO(location, latitude, longitude, address, imageurl);
 			adtos.add(adto);
 		}
 	}catch (Exception e) {

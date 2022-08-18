@@ -19,7 +19,7 @@ import com.hanul.laundry.command.khjCleanInfo;
 import com.hanul.laundry.command.khjMemberCommand;
 import com.hanul.laundry.command.khjMoneyCommand;
 import com.hanul.laundry.command.khjRecentCommand;
-import com.hanul.laundry.dao.khjAnDao;
+import com.hanul.laundry.dao.khjDao;
 import com.hanul.laundry.dto.khjCleanDTO;
 
 @Controller
@@ -61,7 +61,7 @@ public class khjAnController {
 		
 	}
 	
-	@ResponseBody  @RequestMapping("/anCleanInfo")
+	@ResponseBody  @RequestMapping("/kimCleanInfo")
 	public String anCleanInfo(HttpServletRequest req, Model model) throws Exception{
 		
 		try {
@@ -71,7 +71,7 @@ public class khjAnController {
 			e.printStackTrace();
 		} 		
 		
-		ArrayList<khjCleanDTO> adtos = new khjAnDao().anSelectClean();
+		ArrayList<khjCleanDTO> adtos = new khjDao().kimSelectClean();
 		String result = new Gson().toJson( adtos );
 		
 //		command = new CleanInfo();

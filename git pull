@@ -1,0 +1,65 @@
+[33mcommit f7300f8b0b6123c38801c50078ac4b2db0f5728b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: rlqja1205 <rlqja1205@gmail.com>
+Date:   Wed Aug 10 14:55:39 2022 +0900
+
+    즐겨찾기 오류해결
+
+[33mcommit 6c94b85f4fbbcc5bd958214b663e10f2f097fd7b[m
+Author: rlqja1205 <rlqja1205@gmail.com>
+Date:   Mon Aug 8 16:15:00 2022 +0900
+
+    김형준 spring
+
+[33mcommit 9fcefa2454a15ba55d861cbf13fbed87720f7116[m
+Author: ps202203 <pase375@gmail.com>
+Date:   Thu Aug 4 19:37:48 2022 +0900
+
+    깨진 한글 수정
+
+[33mcommit 6d32f92952b594739dd5bca8a0616fbe5004a4b1[m
+Author: MinJae Kang <100544665+MayBeJJ@users.noreply.github.com>
+Date:   Thu Aug 4 18:47:38 2022 +0900
+
+    chart삭제 및 qrcode import 수정
+
+[33mcommit e9c8647b37a2406f6a07d29147f196191465c6b8[m
+Author: ps202203 <pase375@gmail.com>
+Date:   Thu Aug 4 18:14:34 2022 +0900
+
+    search, qrcode 최초 commit
+
+[33mcommit 2aab101861936ece39160a72b366a6a5503ac26d[m
+Author: rlqja1205 <rlqja1205@gmail.com>
+Date:   Thu Aug 4 17:32:40 2022 +0900
+
+    깨진 한글 고침
+
+[33mcommit 57b5d8230b456a72dfad67272c6be9437fc70993[m
+Author: rlqja1205 <rlqja1205@gmail.com>
+Date:   Thu Aug 4 16:41:23 2022 +0900
+
+    kkbancontroller 수정
+
+[33mcommit 225fbb0451835ac483f333a0596572f2ad18352d[m
+Author: rlqja1205 <rlqja1205@gmail.com>
+Date:   Thu Aug 4 16:23:54 2022 +0900
+
+    즐겨찾기처리
+
+[33mcommit f2a91a7afe7c856c8aeef6364246659ed96159a0[m
+Author: ps202203 <pase375@gmail.com>
+Date:   Thu Aug 4 13:53:46 2022 +0900
+
+    QRCode로 test commit
+
+[33mcommit 76c0fe2665ac48827583bcb95ce06b83e281da7f[m
+Author: MinJae Kang <100544665+MayBeJJ@users.noreply.github.com>
+Date:   Mon Jul 18 18:20:41 2022 +0900
+
+    인코딩 utf-8로 변경
+
+[33mcommit 9003a6099fdf2548727f11e3e6ac23d45b2e8a47[m
+Author: MinJae Kang <100544665+MayBeJJ@users.noreply.github.com>
+Date:   Mon Jul 18 17:22:59 2022 +0900
+
+    ATEAM Project
