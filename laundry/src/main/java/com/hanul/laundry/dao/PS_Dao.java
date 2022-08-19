@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.hanul.laundry.dto.PS_SearchDTO;
+import com.hanul.laundry.dto.StoreDTO;
 
 public class PS_Dao {
 	// 데이터 베이스와 연동 : 데이터베이스 초기화 해줌
@@ -29,27 +30,40 @@ public class PS_Dao {
 	}
 	
 //	Search에서 뿌릴 데이터 가져오기 : **전체 리스트**
-	public ArrayList<PS_SearchDTO> anSearch(){
+	public ArrayList<StoreDTO> anSearch(){
 
 		// 데이터베이스와 연동하여 원하는 결과물을 얻는다.
-		ArrayList<PS_SearchDTO> dtos = new ArrayList<PS_SearchDTO>();
+		ArrayList<StoreDTO> dtos = new ArrayList<StoreDTO>();
 		Connection connection = null;
 		PreparedStatement prepareStatement = null;
 		ResultSet resultSet = null;		
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select address, location, imageurl from store" ;
+			String query = "select * from store" ;
 			prepareStatement = connection.prepareStatement(query);
 			resultSet = prepareStatement.executeQuery();
 			
 			while (resultSet.next()) {
 				//여기에서 위도 경도 계산함수(xxx.java or dao 에서 만들기) 돌리고 건네줌
-				String address = resultSet.getString("address");
+				//2020.08.18 Store테이블의 전체컬럼을 StoreDTO 에 담아 넣는 것으로 처리 변경 by조순섭
+				String storeid = resultSet.getString("storeid");
 				String location = resultSet.getString("location");
 				String imageurl = resultSet.getString("imageurl");
-				//String storeid = resultSet.getString("storeid");
-				dtos.add(new PS_SearchDTO(address, location, imageurl));							
+				String address = resultSet.getString("address");
+				String operating = resultSet.getString("operating");
+				String f_cctv = resultSet.getString("f_cctv");
+				String f_game = resultSet.getString("f_game");
+				String f_toilet = resultSet.getString("f_toilet");
+				String f_concent = resultSet.getString("f_concent");
+				String f_wifi = resultSet.getString("f_wifi");
+				String f_coin = resultSet.getString("f_coin");
+				String ownerid = resultSet.getString("ownerid");
+				String latitude = resultSet.getString("latitude");
+				String longitude = resultSet.getString("longitude");
+				int cost = resultSet.getInt("cost");
+				dtos.add(new StoreDTO(storeid, location, imageurl, address, operating, f_cctv,
+						f_game, f_toilet, f_concent, f_wifi, f_coin, ownerid, latitude, longitude, cost));						
 			}	
 			
 			//연결되었는지 확인용 print

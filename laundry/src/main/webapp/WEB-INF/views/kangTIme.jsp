@@ -1,4 +1,4 @@
-<%@page import="com.hanul.laundry.dto.UserDTO" %>
+<%@page import="com.hanul.laundry.dto.KangDTO" %>
 
 <%@page import="com.google.gson.Gson" %>
 <%@page import="com.google.gson.JsonObject" %>
@@ -10,11 +10,9 @@
     pageEncoding="utf-8"%>
 
 <%
-	//Gson gson = new Gson();
-	//String json = gson.toJson((UserDTO)request.getAttribute("kangJoin"));
-	//out.println(json);
+	String state = (String)request.getAttribute("kangTime");
+	out.println(state);
 	
-	out.println( new Gson().toJson((HashMap<String, Object>)request.getAttribute("kangJoin")) );
 	/* 로그인의 경우 : MemberDTO 
 		Gson gson = new Gson();
 		String json = gson.toJson((MemberDTO)request.getAttribute("anLogin"));

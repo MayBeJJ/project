@@ -1,4 +1,4 @@
-<%@page import="com.hanul.laundry.dto.PS_SearchDTO" %>
+<%@page import="com.hanul.laundry.dto.StoreDTO" %>
 
 <%@page import="com.google.gson.Gson" %>
 <%@page import="com.google.gson.JsonObject" %>
@@ -11,7 +11,7 @@
 
 <%
 Gson gson = new Gson();
-String json = gson.toJson((ArrayList<PS_SearchDTO>)request.getAttribute("anSearch"));
+String json = gson.toJson((ArrayList<StoreDTO>)request.getAttribute("anSearch"));
 
 // 클라이언트에게 응답
 out.println(json);	 	
